@@ -12,16 +12,16 @@
 
 ```mermaid
 flowchart TD
-    A[Payment Failure Event] --> B[AI Diagnosis Layer]
-    A --> C[ML Inference Layer]
-    B -->|Root Cause & Confidence| D[Deterministic Policy Engine]
-    C -->|P(Recovery) & Expected Value| D
-    D -->|Check Retries, Limits, Outages| E{Policy Guardrails}
-    E -->|Approved Action| F[Execution Engine]
-    E -->|Violation / High Value| G[Human Review Queue]
-    F --> H[WAIT / RETRY / PAYMENT_LINK / REMINDER / STOP]
-    H --> I[Verified Revenue Recovered ₹]
-    I --> J[Immutable Audit Log]
+    A["Payment Failure Event"] --> B["AI Diagnosis Layer"]
+    A --> C["ML Inference Layer"]
+    B -->|"Root Cause and Confidence"| D["Deterministic Policy Engine"]
+    C -->|"P(Recovery) and Expected Value"| D
+    D -->|"Check Retries, Limits, Outages"| E{"Policy Guardrails"}
+    E -->|"Approved Action"| F["Execution Engine"]
+    E -->|"Violation / High Value"| G["Human Review Queue"]
+    F --> H["WAIT / RETRY / PAYMENT_LINK / REMINDER / STOP"]
+    H --> I["Verified Revenue Recovered ₹"]
+    I --> J["Immutable Audit Log"]
 ```
 
 ---

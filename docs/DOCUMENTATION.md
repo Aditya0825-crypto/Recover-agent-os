@@ -22,43 +22,43 @@ $$\text{Detect} \longrightarrow \text{Diagnose} \longrightarrow \text{Predict } 
 ```mermaid
 flowchart TD
     subgraph Payment Infrastructure
-        RZP[Payment Gateway / Webhook] -->|Event: payment.failed| INGEST[Ingestion & Normalizer]
+        RZP["Payment Gateway / Webhook"] -->|"Event: payment.failed"| INGEST["Ingestion & Normalizer"]
     end
 
     subgraph Intelligence & Inference Layer
-        INGEST --> DIAG[AI Diagnosis Layer]
-        INGEST --> ML[ML Probability Engine XGBoost]
-        ML --> SHAP[SHAP TreeExplainer]
-        DIAG -->|Diagnosis, Detail, Confidence| COMBINE[Candidate Decision Synthesizer]
-        ML -->|Recovery Probability % & Expected Value| COMBINE
-        SHAP -->|Positive & Negative Factors| COMBINE
+        INGEST --> DIAG["AI Diagnosis Layer"]
+        INGEST --> ML["ML Probability Engine XGBoost"]
+        ML --> SHAP["SHAP TreeExplainer"]
+        DIAG -->|"Diagnosis, Detail, Confidence"| COMBINE["Candidate Decision Synthesizer"]
+        ML -->|"Recovery Probability and Expected Value"| COMBINE
+        SHAP -->|"Positive and Negative Factors"| COMBINE
     end
 
     subgraph Governance & Safety Plane
-        COMBINE --> PROPOSAL[Proposed Action]
-        PROPOSAL --> POLICY[Deterministic Python Policy Engine]
-        RULES[(Merchant Policy Config)] --> POLICY
-        OUTAGE[Systemic Outage Detector] --> POLICY
-        POLICY -->|Verify Retries, Amount, Rails, Outage| CHECK{Policy Authorized?}
+        COMBINE --> PROPOSAL["Proposed Action"]
+        PROPOSAL --> POLICY["Deterministic Python Policy Engine"]
+        RULES[("Merchant Policy Config")] --> POLICY
+        OUTAGE["Systemic Outage Detector"] --> POLICY
+        POLICY -->|"Verify Retries, Amount, Rails, Outage"| CHECK{"Policy Authorized?"}
     end
 
     subgraph Execution & Verification
-        CHECK -->|Authorized| EXEC[Action Dispatcher]
-        CHECK -->|Violation / High Value| ESCALATE[Human Review Queue]
-        EXEC --> ACT1[WAIT: Scheduled Interval]
-        EXEC --> ACT2[RETRY: Direct Issuer Authorization]
-        EXEC --> ACT3[PAYMENT_LINK: Alternate Rail]
-        EXEC --> ACT4[REMINDER: SMS / WhatsApp / Email]
-        EXEC --> ACT5[STOP: Suppress Outreach]
-        ACT1 & ACT2 & ACT3 & ACT4 & ACT5 --> VERIFY[Razorpay Webhook Verification]
+        CHECK -->|"Authorized"| EXEC["Action Dispatcher"]
+        CHECK -->|"Violation / High Value"| ESCALATE["Human Review Queue"]
+        EXEC --> ACT1["WAIT: Scheduled Interval"]
+        EXEC --> ACT2["RETRY: Direct Issuer Authorization"]
+        EXEC --> ACT3["PAYMENT_LINK: Alternate Rail"]
+        EXEC --> ACT4["REMINDER: SMS / WhatsApp / Email"]
+        EXEC --> ACT5["STOP: Suppress Outreach"]
+        ACT1 & ACT2 & ACT3 & ACT4 & ACT5 --> VERIFY["Razorpay Webhook Verification"]
     end
 
     subgraph Ledger & Presentation
-        VERIFY -->|Verified ₹ Recovered| DB[(PostgreSQL Database)]
-        POLICY -->|Immutable Decision Record| AUDIT[(Audit Ledger)]
-        DB --> API[FastAPI REST API]
+        VERIFY -->|"Verified Revenue Recovered"| DB[("PostgreSQL Database")]
+        POLICY -->|"Immutable Decision Record"| AUDIT[("Audit Ledger")]
+        DB --> API["FastAPI REST API"]
         AUDIT --> API
-        API --> UI[React 19 / TanStack Frontend]
+        API --> UI["React 19 / TanStack Frontend"]
     end
 ```
 
