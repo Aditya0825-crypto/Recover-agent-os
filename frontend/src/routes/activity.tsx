@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { ActivityPage } from "../components/recovery-pages";
+export const Route = createFileRoute("/activity")({ head: () => ({ meta: [{ title: "Agent Activity — RecoveryOS" }, { name: "description", content: "Monitor RecoveryOS as it detects, diagnoses, routes and verifies payment recovery actions." }, { property: "og:title", content: "Agent Activity — RecoveryOS" }, { property: "og:description", content: "A live view of safe, explainable revenue recovery operations." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: ActivityPage });

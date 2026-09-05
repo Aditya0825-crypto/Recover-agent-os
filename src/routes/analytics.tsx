@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { AnalyticsPage } from "../components/recovery-pages";
+export const Route = createFileRoute("/analytics")({ head: () => ({ meta: [{ title: "Recovery Analytics — RecoveryOS" }, { name: "description", content: "Measure baseline recovery, incremental revenue and operational performance by failure type." }, { property: "og:title", content: "Recovery Analytics — RecoveryOS" }, { property: "og:description", content: "See the business impact RecoveryOS creates beyond manual retry." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: AnalyticsPage });

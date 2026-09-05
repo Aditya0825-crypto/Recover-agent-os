@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { QueuePage } from "../components/recovery-pages";
+export const Route = createFileRoute("/queue")({ head: () => ({ meta: [{ title: "Recovery Queue — RecoveryOS" }, { name: "description", content: "Route and prioritize at-risk Razorpay payments by recovery value and policy." }, { property: "og:title", content: "Recovery Queue — RecoveryOS" }, { property: "og:description", content: "Prioritize recoverable payments with explainable next actions." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: QueuePage });

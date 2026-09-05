@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { AuditPage } from "../components/recovery-pages";
+export const Route = createFileRoute("/audit")({ head: () => ({ meta: [{ title: "Audit Log — RecoveryOS" }, { name: "description", content: "Search every RecoveryOS decision, policy check, action and recovered amount." }, { property: "og:title", content: "Audit Log — RecoveryOS" }, { property: "og:description", content: "Every AI decision leaves a searchable, explainable recovery receipt." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: AuditPage });

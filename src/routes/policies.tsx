@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PoliciesPage } from "../components/recovery-pages";
+export const Route = createFileRoute("/policies")({ head: () => ({ meta: [{ title: "Policies & Guardrails — RecoveryOS" }, { name: "description", content: "Control the rules that allow, pause or escalate automated revenue recovery actions." }, { property: "og:title", content: "Policies & Guardrails — RecoveryOS" }, { property: "og:description", content: "Make safe automation explicit with merchant-controlled recovery policy." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: PoliciesPage });

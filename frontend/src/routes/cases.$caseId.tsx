@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { CaseDetailPage } from "../components/recovery-pages";
+export const Route = createFileRoute("/cases/$caseId")({ head: ({ params }) => ({ meta: [{ title: `${params.caseId} — RecoveryOS` }, { name: "description", content: "Detailed payment diagnosis, recovery intelligence, policy check and audit trail." }, { property: "og:title", content: `${params.caseId} — RecoveryOS` }, { property: "og:description", content: "See the decision context behind a RecoveryOS revenue recovery case." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: CaseDetailPage });
